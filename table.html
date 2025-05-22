@@ -2,19 +2,20 @@
 <html lang="ja">
 
 <head>
-<title>BPM200難易度表</title>
-<meta http-equiv="Content-Script-Type" content="text/javascript" />
-<meta http-equiv="Content-Style-Type" content="text/css" />
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
-<meta name="bmstable" content="./header.json" /> <!--　読み込む難易度表のヘッダファイルをここに指定　-->
-<link href="style/style.css" rel="stylesheet" type="text/css" media="screen,print" />
-<script src="style/jquery-2.0.2.min.js"></script>
+  <meta charset="utf-8" />
+  <title>BPM200難易度表</title>
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="bmstable" content="./header.json" /> <!--　読み込む難易度表のヘッダファイルをここに指定　-->
+  <link href="style/style.css" rel="stylesheet" type="text/css" media="screen,print" />
+  <script src="style/jquery-2.0.2.min.js"></script>
 </head>
 
 <body>
 
 <center>
 <strong><span style="font-size: 24pt;">BPM200難易度表</span></strong><br>
+<p>難易度表の読み込みには少し時間がかかります。お待ちください…</p>
 <a href="index.html">TOPに戻る</a><br>
 </center>
 
@@ -119,7 +120,7 @@ function makeBMSTable(info, mark, order) {
 	
     // 表のクリア
     obj.html("");
-    $("<tr height='20' style='color:white;background-color:#666666'><td align='center'>LV</td><td align='center'>動画</td><td align='center'>譜面</td><td colspan='2' align='center'>beatoraja IR</td><td align='center'>タイトル</td><td align='center'>本体</td><td align='center'>差分</td><td align='center'>コメント</td></tr>").appendTo(obj);
+    $("<tr height='20' style='color:white;background-color:#666666'><td align='center'>LV</td><td align='center'>動画</td><td align='center'>譜面</td><td colspan='2' align='center'>beatoraja IR</td><td align='center'>タイトル</td><td align='center'>本体</td><td align='center'>差分</td><td align='center'>BPM</td><td align='center'>コメント</td></tr>").appendTo(obj);
     var obj_sep = null;
     for (var i = 0; i < info.length; i++) {
         // 難度ごとの区切り
@@ -221,8 +222,10 @@ function makeBMSTable(info, mark, order) {
 	        $("<td width='15%'></td>").appendTo(str);
         	}
         }
+        // BPM
+        $("<td width='5%'>" + info[i].bpm + "</div></td>").appendTo(str);
         // コメント
-        $("<td width='25%'>" + info[i].comment + "</div></td>").appendTo(str);
+        $("<td width='20%'>" + info[i].comment + "</div></td>").appendTo(str);
         str.appendTo(obj);
         count++;
     }
