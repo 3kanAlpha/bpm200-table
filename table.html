@@ -128,7 +128,7 @@ function makeBMSTable(info, mark, order) {
         if (x != info[i].level) {
             // ‘O‚Ì‹æØ‚è‚É•ˆ–Ê”A•½‹Ï–§“x‚ğ’Ç‰Á
           	if (obj_sep != null) {
-                obj_sep.html("<td colspan='9' align='center'>" + "<b>" + mark + x + " (" + count + "•ˆ–Ê)</b></td>");
+                obj_sep.html("<td colspan='10' align='center'>" + "<b>" + mark + x + " (" + count + "•ˆ–Ê)</b></td>");
             }
             obj_sep = $("<tr class='tr_separate' id='" + mark + info[i].level + "'></tr>");
             obj_sep.appendTo(obj);
